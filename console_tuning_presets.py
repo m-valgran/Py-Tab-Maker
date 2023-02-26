@@ -1,3 +1,4 @@
+from tabmaker_io.output_controller import print_at
 from console_menu import display_option_menu
 
 PRESETS = [
@@ -56,7 +57,9 @@ def choose_preset(x,y):
 	for i, preset in enumerate(PRESETS):
 		preset_name_list.append(preset['name'])
 
-	chosen_preset = display_option_menu(x,y,preset_name_list,fore_color='MAGENTA')
+	# Printing title
+	print_at(x,y,"Select preset:")
+	chosen_preset = display_option_menu(x,y+2,preset_name_list,fore_color='MAGENTA')
 
 	chosen_preset_tuning_list = []
 	for preset in PRESETS:

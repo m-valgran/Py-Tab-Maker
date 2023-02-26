@@ -20,8 +20,8 @@ def set_tab(x,y):
     tuning_list = []
     
     # Defining positions of elements in screen
-    notes_pos = {'x':x,'y':y}
-    option_menu_pos = {'x':x,'y':y+1}
+    notes_pos = {'x':x,'y':y+2}
+    option_menu_pos = {'x':x,'y':y+3}
     
     # Defining a set of button hints
     enter_color = getattr(Fore, 'MAGENTA')
@@ -31,10 +31,13 @@ def set_tab(x,y):
     
     stop_input = False
     while not stop_input:
+        # Printing title
+        print_at(x,y,"Set custom tuning:")
+
         # Selecting a new note to be pushed into the list
         omp_x = option_menu_pos['x']
         omp_y = option_menu_pos['y']
-        note = display_option_menu(omp_x, omp_y, NOTES, display_type='s')
+        note = display_option_menu(omp_x, omp_y, NOTES, display_type='s',clear_console_bool=False)
         note = note.strip()
         tuning_list.append(note)
 
